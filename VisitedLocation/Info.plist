@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Request to log your location</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Request to log your location </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Request to log your location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

@@ -9,20 +9,24 @@
 import Foundation
 import RxSwift
 import CoreLocation
+import UserNotifications
 
 
 
 class LocationService: NSObject {
     let locationManager = CLLocationManager()
-    
 
     override init() {
         super.init()
-        
-        locationManager.requestAlwaysAuthorization()
-        locationManager.stopMonitoringVisits()        
         locationManager.delegate = self
     }
+    
+    func requestToLogLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startMonitoringVisits()
+        
+    }
+
 }
 
 extension LocationService: CLLocationManagerDelegate {
