@@ -18,31 +18,25 @@ struct Location {
         self.coordinate = coordinate
         self.annotation = Location.getAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
     }
-    
+}
+
+
+// MARK: helper methods
+extension Location {
     static func getAnnotation(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) -> MKPointAnnotation {
         let annotation = MKPointAnnotation()
         annotation.title = title
-        annotation.subtitle = "address"
+        annotation.subtitle = subtitle
         annotation.coordinate = coordinate
         return annotation
     }
-    
-    
-
-    static func getMockData() -> [Location] {
-        let loc1 = Location.getLocation(lat: 33.692610, long: -117.770650, title: "My house", subtitle: "Address")
-        let loc2 = Location.getLocation(lat: 33.831249, long: -117.919678, title: "Anaheim Libray", subtitle: "Address")
-        let loc3 = Location.getLocation(lat: 33.699680, long: -117.777450, title: "Heritage Park", subtitle: "Address")
-        let locations = [loc1, loc2, loc3]
-        return locations
-    }
-    
+        
     static func getLocation(lat: Double, long: Double, title: String, subtitle: String) -> Location {
         let cllocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let location = Location(coordinate: cllocation, title: title, subtitle: subtitle)
         return location
     }
 }
-
+ 
 
 

@@ -12,25 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var locationService: LocationService!
+    var locationService = LocationService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //Setup Location Service
-        let locations = Location.getMockData()
-        locationService = LocationService(locations: locations)
-        locationService.startMonitoringVisits()
-        
         //setup app entry point
         let viewModel = MapViewModel(locationService: locationService)
-        let vc = MapVC.createWith(title: "Visited", viewModel: viewModel)
+        let vc = MapVC.createWith(title: "Places Visited", viewModel: viewModel)
         let rootNav = UINavigationController(rootViewController: vc)
-        rootNav.navigationBar.prefersLargeTitles = true
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootNav
         window?.makeKeyAndVisible()
-
         
         return true
     }

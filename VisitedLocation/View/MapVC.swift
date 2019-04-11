@@ -15,6 +15,7 @@ import RxCocoa
 
 class MapVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var testButton: UIBarButtonItem!
     let identifier = "identifier"
     let disposeBag = DisposeBag()
     var viewModel: MapViewModel!
@@ -34,21 +35,29 @@ class MapVC: UIViewController {
     }
     
     func setupVC() {
-        mapView.userTrackingMode = .follow
         mapView.delegate = self
     }
-    
     func setupRx()  {
         viewModel.locationService.subject.asObservable()
             .subscribe(onNext: { [weak self] items in
                 guard let self = self else { return }
                 let annotations = items.map({ $0.annotation })
-                self.mapView.addAnnotations(annotations)
+                self.mapView.showAnnotations(annotations, animated: true)
             })
             .disposed(by: disposeBag)
     }
     
+    @IBAction func testLocationUpdate(_ sender: Any) {
+        if testButton.title == "Test" {
+            viewModel.testLocationUpdate()
+            testButton.title = "Stop"
+        }else {
+            viewModel.stopTestLocationUpdate()
+            testButton.title = "Test"
+        }        
+    }
 }
+
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

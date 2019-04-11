@@ -18,58 +18,32 @@ class LocationService: NSObject {
     public var subject: BehaviorSubject<[Location]>
     var locations: [Location]
 
-    init(locations: [Location]) {
-        self.locations = locations
-        print(locations)
+    override init() {
+        self.locations = []
         subject = BehaviorSubject<[Location]>(value: locations)
         
         super.init()
-        locationManager.delegate = self
+        setup()
     }
     
-    public func startMonitoringVisits() {
+    public func setup() {
+        locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.startMonitoringVisits()
-//        locationManager.startUpdatingLocation()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates = true        
     }
-
 }
 
-extension LocationService: CLLocationManagerDelegate {
 
+extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
         let cllocation = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
         geocoder.reverseGeocodeLocation(cllocation) { [weak self] (placemarks, error) in
-            guard let self = self, let placemark = placemarks?.first else { return }            
-            let description = "\(placemark)"
-            let name = placemark.name ?? "Unknown"
-            let address = Address(placeMark: placemark)
-            let location = Location(coordinate: visit.coordinate, title: name, subtitle: address.addressString)
-            self.locations.append(location)
-            self.subject.onNext(self.locations)
-        }
-    }
-    
-    
-    
-    //For testing only
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        print(location)
-        geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
             guard let self = self, let placemark = placemarks?.first else { return }
-            let description = "\(placemark)"
             let name = placemark.name ?? "Unknown"
-            let address = Address(placeMark: placemark)
-            let location = Location(coordinate: location.coordinate, title: name, subtitle: address.addressString)
+            let location = Location(coordinate: visit.coordinate, title: name, subtitle: placemark.addressString())
             self.locations.append(location)
             self.subject.onNext(self.locations)
         }
-    }
-    
-
+    }    
 }

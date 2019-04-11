@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E558859225EE71600DF868D /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E558858225EE71600DF868D /* Address.swift */; };
-		0E55885B225EF5F700DF868D /* Route.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 0E55885A225EF5F700DF868D /* Route.gpx */; };
 		5E4736B4225E9F3D00779329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736B3225E9F3D00779329 /* AppDelegate.swift */; };
 		5E4736B9225E9F3D00779329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E4736B7225E9F3D00779329 /* Main.storyboard */; };
 		5E4736BB225E9F3E00779329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E4736BA225E9F3E00779329 /* Assets.xcassets */; };
@@ -20,6 +18,8 @@
 		5E4736ED225EA19300779329 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736EC225EA19300779329 /* Location.swift */; };
 		5E4736EF225EA27600779329 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736EE225EA27600779329 /* LocationService.swift */; };
 		5E4736F1225EA29700779329 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F0225EA29700779329 /* StorageService.swift */; };
+		5E4736F3225F960700779329 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F2225F960700779329 /* TestLocation.swift */; };
+		5E4736F6225FA7B900779329 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F5225FA7B900779329 /* CLPlacemark.swift */; };
 		6B3F55B76E67566FEE451DB4 /* Pods_VisitedLocationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6BA966D7FC03E6A1EE4730 /* Pods_VisitedLocationTests.framework */; };
 		86A4EFB5FDBEA99830BE543D /* Pods_VisitedLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26B66E4CA3153C806A498A3 /* Pods_VisitedLocation.framework */; };
 		D9ED98ADF08B1327EEBD405F /* Pods_VisitedLocationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FA665421AADEFFF20139F3 /* Pods_VisitedLocationUITests.framework */; };
@@ -44,8 +44,6 @@
 
 /* Begin PBXFileReference section */
 		0428A70D1AAD98CD84200237 /* Pods-VisitedLocation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitedLocation.debug.xcconfig"; path = "Target Support Files/Pods-VisitedLocation/Pods-VisitedLocation.debug.xcconfig"; sourceTree = "<group>"; };
-		0E558858225EE71600DF868D /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		0E55885A225EF5F700DF868D /* Route.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Route.gpx; sourceTree = "<group>"; };
 		5E4736B0225E9F3D00779329 /* VisitedLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisitedLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4736B3225E9F3D00779329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E4736B8225E9F3D00779329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +61,8 @@
 		5E4736EC225EA19300779329 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5E4736EE225EA27600779329 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		5E4736F0225EA29700779329 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		5E4736F2225F960700779329 /* TestLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
+		5E4736F5225FA7B900779329 /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		87FA665421AADEFFF20139F3 /* Pods_VisitedLocationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisitedLocationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6BA966D7FC03E6A1EE4730 /* Pods_VisitedLocationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisitedLocationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1823DDBE87AE3DE9420E771 /* Pods-VisitedLocation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitedLocation.release.xcconfig"; path = "Target Support Files/Pods-VisitedLocation/Pods-VisitedLocation.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +131,8 @@
 				5E4736E3225E9F6400779329 /* View */,
 				5E4736E2225E9F5B00779329 /* ViewModel */,
 				5E4736E4225E9F7800779329 /* Services */,
+				5E4736F4225FA7A600779329 /* Extensions */,
+				5E4736F7225FAC7000779329 /* TestData */,
 				5E4736BA225E9F3E00779329 /* Assets.xcassets */,
 				5E4736BC225E9F3E00779329 /* LaunchScreen.storyboard */,
 				5E4736BF225E9F3E00779329 /* Info.plist */,
@@ -160,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				5E4736EC225EA19300779329 /* Location.swift */,
-				0E558858225EE71600DF868D /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,11 +194,26 @@
 		5E4736E5225E9F8800779329 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				0E55885A225EF5F700DF868D /* Route.gpx */,
 				5E4736B3225E9F3D00779329 /* AppDelegate.swift */,
 				5E4736B7225E9F3D00779329 /* Main.storyboard */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		5E4736F4225FA7A600779329 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5E4736F5225FA7B900779329 /* CLPlacemark.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5E4736F7225FAC7000779329 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				5E4736F2225F960700779329 /* TestLocation.swift */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 		7A13B008BEA85212390DF0B8 /* Pods */ = {
@@ -337,7 +353,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4736BE225E9F3E00779329 /* LaunchScreen.storyboard in Resources */,
-				0E55885B225EF5F700DF868D /* Route.gpx in Resources */,
 				5E4736BB225E9F3E00779329 /* Assets.xcassets in Resources */,
 				5E4736B9225E9F3D00779329 /* Main.storyboard in Resources */,
 			);
@@ -467,7 +482,8 @@
 				5E4736EF225EA27600779329 /* LocationService.swift in Sources */,
 				5E4736ED225EA19300779329 /* Location.swift in Sources */,
 				5E4736EB225EA06600779329 /* MapViewModel.swift in Sources */,
-				0E558859225EE71600DF868D /* Address.swift in Sources */,
+				5E4736F3225F960700779329 /* TestLocation.swift in Sources */,
+				5E4736F6225FA7B900779329 /* CLPlacemark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJNW7456U;
+				DEVELOPMENT_TEAM = LP46D328FV;
 				INFOPLIST_FILE = VisitedLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -664,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QAJNW7456U;
+				DEVELOPMENT_TEAM = LP46D328FV;
 				INFOPLIST_FILE = VisitedLocation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

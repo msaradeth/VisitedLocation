@@ -11,8 +11,26 @@ import RxSwift
 
 class MapViewModel: NSObject {
     var locationService: LocationService
-    
+    var testLocation: TestLocation
+     
     init(locationService: LocationService) {
         self.locationService = locationService
+        self.testLocation = TestLocation(locationService: locationService)
     }
+    
+    
+    func testLocationUpdate() {
+        testLocation.resetTest()
+        testLocation.runTest()
+    }
+    
+    func stopTestLocationUpdate() {
+        testLocation.stopTest()
+    }
+    
+    
 }
+
+
+
+
