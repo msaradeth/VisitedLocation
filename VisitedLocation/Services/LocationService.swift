@@ -45,7 +45,8 @@ extension LocationService: CLLocationManagerDelegate {
             guard let self = self, let placemark = placemarks?.first else { return }            
             let description = "\(placemark)"
             let name = placemark.name ?? "Unknown"
-            let location = Location(coordinate: visit.coordinate, title: name, subtitle: description)
+            let address = Address(placeMark: placemark)
+            let location = Location(coordinate: visit.coordinate, title: name, subtitle: address.addressString)
             self.locations.append(location)
             self.subject.onNext(self.locations)
         }
@@ -63,7 +64,8 @@ extension LocationService: CLLocationManagerDelegate {
             guard let self = self, let placemark = placemarks?.first else { return }
             let description = "\(placemark)"
             let name = placemark.name ?? "Unknown"
-            let location = Location(coordinate: location.coordinate, title: name, subtitle: description)
+            let address = Address(placeMark: placemark)
+            let location = Location(coordinate: location.coordinate, title: name, subtitle: address.addressString)
             self.locations.append(location)
             self.subject.onNext(self.locations)
         }

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Setup Location Service
         let locations = Location.getMockData()
-        locationService = LocationService(locations: [])
+        locationService = LocationService(locations: locations)
         locationService.startMonitoringVisits()
         
         //setup app entry point
