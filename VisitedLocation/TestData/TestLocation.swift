@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class TestLocation {
     private let mockLocations = TestLocation.getMockData()
@@ -21,8 +22,11 @@ class TestLocation {
     
     func runTest() {
         guard testCompleted == false, index < mockLocations.count else { return }
-        locations.append(mockLocations[index])
+        let newLocation = mockLocations[index]
+        newLocation.saveToDisk()
+        locations.append(newLocation)
         locationService.subject.onNext(locations)
+                
         
         //add more locations or reset data
         index += 1
@@ -46,12 +50,14 @@ class TestLocation {
         index = 0
     }
     
+    
     static func getMockData() -> [Location] {
-        let loc1 = Location.getLocation(lat: 33.692610, long: -117.770650, title: "99 Ranch Market", subtitle: "5402 Walnut Ave, Irvine, CA 92604")
-        let loc2 = Location.getLocation(lat: 33.699680, long: -117.777450, title: "Heritage Park", subtitle: "14301 Yale Ave. Irvine, CA 92604")
-        let loc3 = Location.getLocation(lat: 33.677898, long: -117.862373, title: "Johnwayne Airport", subtitle: "18601 Airport Way, Santa Ana, CA 92707")
-        let loc4 = Location.getLocation(lat: 33.831249, long: -117.919678, title: "Anaheim Libray", subtitle: "500 W Broadway, Anaheim, CA 92805")
+        let loc1 = Location(latitude: 33.692610, longitude: -117.770650, name: "99 Ranch Market", address: "5402 Walnut Ave, Irvine, CA 92604")
+        let loc2 = Location(latitude: 33.699680, longitude: -117.777450, name: "Heritage Park", address: "14301 Yale Ave. Irvine, CA 92604")
+        let loc3 = Location(latitude: 33.677898, longitude: -117.862373, name: "Johnwayne Airport", address: "18601 Airport Way, Santa Ana, CA 92707")
+        let loc4 = Location(latitude: 33.831249, longitude: -117.919678, name: "Anaheim Libray", address: "500 W Broadway, Anaheim, CA 92805")
         let locations = [loc1, loc2, loc3, loc4]
         return locations
     }
+    
 }

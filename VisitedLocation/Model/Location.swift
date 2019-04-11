@@ -9,32 +9,51 @@
 import Foundation
 import CoreLocation
 import MapKit
+import RealmSwift
 
-struct Location {
-    var coordinate: CLLocationCoordinate2D
-    var annotation: MKAnnotation
+
+class Location: Object {
+    @objc dynamic var latitude: Double = 0
+    @objc dynamic var longitude: Double = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var address: String = ""
+
     
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
-        self.coordinate = coordinate
-        self.annotation = Location.getAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+    convenience init(latitude: Double, longitude: Double, name: String, address: String) {
+        self.init()
+        self.latitude = latitude
+        self.longitude = longitude
+        self.name = name
+        self.address = address
     }
+    
+    convenience init(coordinate: CLLocationCoordinate2D, name: String, address: String) {
+        self.init()
+        self.latitude = coordinate.latitude
+        self.longitude = coordinate.longitude
+        self.name = name
+        self.address = address
+    }
+
 }
 
 
 // MARK: helper methods
 extension Location {
-    static func getAnnotation(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) -> MKPointAnnotation {
+    
+    func getAnnotation() -> MKPointAnnotation {
         let annotation = MKPointAnnotation()
-        annotation.title = title
-        annotation.subtitle = subtitle
+        annotation.title = name
+        annotation.subtitle = address        
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         annotation.coordinate = coordinate
         return annotation
     }
-        
-    static func getLocation(lat: Double, long: Double, title: String, subtitle: String) -> Location {
-        let cllocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        let location = Location(coordinate: cllocation, title: title, subtitle: subtitle)
-        return location
+    
+    func saveToDisk() {
+        try! Storage.shared.realm.write {
+            Storage.shared.realm.add(self)
+        }
     }
 }
  

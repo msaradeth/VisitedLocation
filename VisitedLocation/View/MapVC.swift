@@ -41,7 +41,7 @@ class MapVC: UIViewController {
         viewModel.locationService.subject.asObservable()
             .subscribe(onNext: { [weak self] items in
                 guard let self = self else { return }
-                let annotations = items.map({ $0.annotation })
+                let annotations = items.map({ $0.getAnnotation() })
                 self.mapView.showAnnotations(annotations, animated: true)
             })
             .disposed(by: disposeBag)

@@ -17,7 +17,7 @@
 		5E4736EB225EA06600779329 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736EA225EA06600779329 /* MapViewModel.swift */; };
 		5E4736ED225EA19300779329 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736EC225EA19300779329 /* Location.swift */; };
 		5E4736EF225EA27600779329 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736EE225EA27600779329 /* LocationService.swift */; };
-		5E4736F1225EA29700779329 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F0225EA29700779329 /* StorageService.swift */; };
+		5E4736F1225EA29700779329 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F0225EA29700779329 /* Storage.swift */; };
 		5E4736F3225F960700779329 /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F2225F960700779329 /* TestLocation.swift */; };
 		5E4736F6225FA7B900779329 /* CLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4736F5225FA7B900779329 /* CLPlacemark.swift */; };
 		6B3F55B76E67566FEE451DB4 /* Pods_VisitedLocationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6BA966D7FC03E6A1EE4730 /* Pods_VisitedLocationTests.framework */; };
@@ -60,7 +60,7 @@
 		5E4736EA225EA06600779329 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5E4736EC225EA19300779329 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5E4736EE225EA27600779329 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
-		5E4736F0225EA29700779329 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		5E4736F0225EA29700779329 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		5E4736F2225F960700779329 /* TestLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
 		5E4736F5225FA7B900779329 /* CLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPlacemark.swift; sourceTree = "<group>"; };
 		87FA665421AADEFFF20139F3 /* Pods_VisitedLocationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisitedLocationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				5E4736EE225EA27600779329 /* LocationService.swift */,
-				5E4736F0225EA29700779329 /* StorageService.swift */,
+				5E4736F0225EA29700779329 /* Storage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4736B4225E9F3D00779329 /* AppDelegate.swift in Sources */,
-				5E4736F1225EA29700779329 /* StorageService.swift in Sources */,
+				5E4736F1225EA29700779329 /* Storage.swift in Sources */,
 				5E4736E9225EA04D00779329 /* MapVC.swift in Sources */,
 				5E4736EF225EA27600779329 /* LocationService.swift in Sources */,
 				5E4736ED225EA19300779329 /* Location.swift in Sources */,

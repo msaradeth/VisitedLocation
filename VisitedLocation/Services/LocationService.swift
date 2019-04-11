@@ -21,9 +21,15 @@ class LocationService: NSObject {
     override init() {
         self.locations = []
         subject = BehaviorSubject<[Location]>(value: locations)
-        
         super.init()
         setup()
+        
+        //Get stored locations from disk
+        Storage.shared.getStoredLocations { [weak self] (storeLocations) in
+            guard let self = self else { return }
+            self.locations.append(contentsOf: storeLocations)
+            self.subject.onNext(self.locations)
+        }
     }
     
     public func setup() {
@@ -41,9 +47,10 @@ extension LocationService: CLLocationManagerDelegate {
         geocoder.reverseGeocodeLocation(cllocation) { [weak self] (placemarks, error) in
             guard let self = self, let placemark = placemarks?.first else { return }
             let name = placemark.name ?? "Unknown"
-            let location = Location(coordinate: visit.coordinate, title: name, subtitle: placemark.addressString())
-            self.locations.append(location)
-            self.subject.onNext(self.locations)
+            let location = Location(coordinate: visit.coordinate, name: name, address: placemark.addressString())
+            location.saveToDisk()
+            self.locations.append(location)            
+            self.subject.onNext(self.locations)            
         }
     }    
 }
