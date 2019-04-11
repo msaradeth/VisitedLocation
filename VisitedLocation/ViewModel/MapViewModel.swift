@@ -10,9 +10,9 @@ import Foundation
 import RxSwift
 
 class MapViewModel: NSObject {
-    var subject: BehaviorSubject<[Location]>
+    var locationService: LocationService
     
-    init(items: [Location]) {
-        subject = BehaviorSubject<[Location]>(value: items)
+    init(locationService: LocationService) {
+        self.locationService = locationService
     }
 }

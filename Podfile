@@ -10,7 +10,6 @@ target 'VisitedLocation' do
    pod 'RxSwift',    '~> 4.0'
    pod 'RxCocoa',    '~> 4.0'
    pod 'RealmSwift'
-   pod 'RxMKMapView'
 
   target 'VisitedLocationTests' do
     inherit! :search_paths

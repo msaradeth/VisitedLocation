@@ -11,37 +11,38 @@ import CoreLocation
 import MapKit
 
 struct Location {
-    var latitude: Double
-    var longitude: Double
-    var clLocation: CLLocation
-    var visit: CLVisit
+    var coordinate: CLLocationCoordinate2D
     var annotation: MKAnnotation
     
-    // create CLLocation from the coordinates of CLVisit
-//    let clLocation = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
+    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+        self.coordinate = coordinate
+        self.annotation = Location.getAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+    }
     
-}
-//override var coordinate: CLLocationCoordinate2D {
-//    return myCoordinates
-//}
+    static func getAnnotation(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) -> MKPointAnnotation {
+        let annotation = MKPointAnnotation()
+        annotation.title = title
+        annotation.subtitle = "address"
+        annotation.coordinate = coordinate
+        return annotation
+    }
+    
+    
 
-//static let geoCoder = CLGeocoder()
-//// Get location description
-//AppDelegate.geoCoder.reverseGeocodeLocation(clLocation) { placemarks, _ in
-//    if let place = placemarks?.first {
-//        let description = "\(place)"
-//        self.newVisitReceived(visit, description: description)
-//    }
-//}
-//
-//func annotationForLocation(_ location: Location) -> MKAnnotation {
-//    let annotation = MKPointAnnotation()
-//    annotation.title = location.dateString
-//    annotation.coordinate = location.coordinates
-//    return annotation
-//}
-//
-//mapView.userTrackingMode = .follow
-//let annotations = LocationsStorage.shared.locations.map { annotationForLocation($0) }
-//mapView.addAnnotations(annotations)
-//NotificationCenter.default.addObserver(self, se
+    static func getMockData() -> [Location] {
+        let loc1 = Location.getLocation(lat: 33.692610, long: -117.770650, title: "My house", subtitle: "Address")
+        let loc2 = Location.getLocation(lat: 33.831249, long: -117.919678, title: "Anaheim Libray", subtitle: "Address")
+        let loc3 = Location.getLocation(lat: 33.699680, long: -117.777450, title: "Heritage Park", subtitle: "Address")
+        let locations = [loc1, loc2, loc3]
+        return locations
+    }
+    
+    static func getLocation(lat: Double, long: Double, title: String, subtitle: String) -> Location {
+        let cllocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let location = Location(coordinate: cllocation, title: title, subtitle: subtitle)
+        return location
+    }
+}
+
+
+
