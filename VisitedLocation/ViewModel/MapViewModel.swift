@@ -19,6 +19,7 @@ class MapViewModel: NSObject {
     }
     
     
+    //MARK: Testing
     func testLocationUpdate() {
         testLocation.resetTest()
         testLocation.runTest()

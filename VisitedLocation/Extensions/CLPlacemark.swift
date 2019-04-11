@@ -11,7 +11,7 @@ import Foundation
 
 extension CLPlacemark {
     func addressString() -> String {
-        let address = concatenate(string1: self.thoroughfare, string2: self.subThoroughfare)  //Street address
+        let address = concatenate(string1: self.subThoroughfare, string2: self.thoroughfare)  //Street address
             + " " + concatenate(string1: self.locality, string2: self.subLocality)   //City
             + " " + concatenate(string1: self.administrativeArea, string2: self.subAdministrativeArea)   //State
             + " " + (self.postalCode ?? "")   //Zip

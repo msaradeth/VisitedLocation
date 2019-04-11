@@ -51,9 +51,7 @@ extension Location {
     }
     
     func saveToDisk() {
-        try! Storage.shared.realm.write {
-            Storage.shared.realm.add(self)
-        }
+        Storage.write(location: self)
     }
 }
  
