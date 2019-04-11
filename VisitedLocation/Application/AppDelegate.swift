@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewModel = MapViewModel(locationService: locationService)
         let vc = MapVC.createWith(title: "Places Visited", viewModel: viewModel)
         let rootNav = UINavigationController(rootViewController: vc)
+        rootNav.navigationBar.barStyle = .black
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootNav

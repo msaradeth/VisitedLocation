@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import CoreLocation
 import MapKit
 import RxSwift
 import RxCocoa
