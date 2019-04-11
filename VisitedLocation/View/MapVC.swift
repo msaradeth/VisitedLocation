@@ -48,12 +48,12 @@ class MapVC: UIViewController {
     }
     
     @IBAction func testLocationUpdate(_ sender: Any) {
-        if testButton.title == "Test" {
+        if testButton.title == "Start Test" {
             viewModel.testLocationUpdate()
-            testButton.title = "Stop"
+            testButton.title = "Stop Test"
         }else {
             viewModel.stopTestLocationUpdate()
-            testButton.title = "Test"
+            testButton.title = "Start Test"
         }        
     }
 }
