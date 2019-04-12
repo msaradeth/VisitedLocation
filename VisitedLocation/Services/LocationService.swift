@@ -47,7 +47,7 @@ extension LocationService: CLLocationManagerDelegate {
         geocoder.reverseGeocodeLocation(cllocation) { [weak self] (placemarks, error) in
             guard let self = self, let placemark = placemarks?.first else { return }
             let name = placemark.name ?? "Unknown"
-            let addressString = placemark.getAddress()
+            let addressString = placemark.addressString()
             
             let location = Location(coordinate: visit.coordinate, name: name, address: addressString)
             location.saveToDisk()
