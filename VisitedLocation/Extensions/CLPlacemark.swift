@@ -10,7 +10,15 @@ import CoreLocation
 import Foundation
 
 extension CLPlacemark {
+    func getAddress() -> String {
+        let description = "\(self)"
+        let name = self.name ?? ""
+        let address = String(description.suffix(name.count))
+        return address
+    }
+    
     func addressString() -> String {
+        //Not working yet
         let address = concatenate(string1: self.subThoroughfare, string2: self.thoroughfare)  //Street address
             + " " + concatenate(string1: self.locality, string2: self.subLocality)   //City
             + " " + concatenate(string1: self.administrativeArea, string2: self.subAdministrativeArea)   //State

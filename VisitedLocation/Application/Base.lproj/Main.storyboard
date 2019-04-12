@@ -47,6 +47,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="wis-m3-u3h">
+                        <barButtonItem key="leftBarButtonItem" title="Clear Storage" id="48q-ed-m8F">
+                            <connections>
+                                <action selector="clearStorage:" destination="BYZ-38-t0r" id="ZC9-8c-j5e"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Start Test" id="2vk-ZY-xq5">
                             <connections>
                                 <action selector="testLocationUpdate:" destination="BYZ-38-t0r" id="gpw-f5-JtH"/>

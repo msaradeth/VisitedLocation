@@ -23,10 +23,12 @@ class MapViewModel: NSObject {
     func testLocationUpdate() {
         testLocation.resetTest()
         testLocation.runTest()
-    }
-    
+    }    
     func stopTestLocationUpdate() {
         testLocation.stopTest()
+    }
+    func clearStorage() {
+        Storage.deleteAll()
     }
     
     

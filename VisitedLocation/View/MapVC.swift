@@ -38,9 +38,11 @@ class MapVC: UIViewController {
     }
     func setupRx()  {
         viewModel.locationService.subject.asObservable()
-            .subscribe(onNext: { [weak self] items in
+            .map({ locations -> [MKAnnotation] in
+                return locations.map({ $0.getAnnotation() })
+            })
+            .subscribe(onNext: { [weak self] annotations in
                 guard let self = self else { return }
-                let annotations = items.map({ $0.getAnnotation() })
                 self.mapView.showAnnotations(annotations, animated: true)
             })
             .disposed(by: disposeBag)
@@ -54,6 +56,9 @@ class MapVC: UIViewController {
             viewModel.stopTestLocationUpdate()
             testButton.title = "Start Test"
         }        
+    }
+    @IBAction func clearStorage(_ sender: Any) {
+        viewModel.clearStorage()
     }
 }
 
